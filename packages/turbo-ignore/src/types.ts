@@ -20,4 +20,6 @@ export interface TurboIgnoreArgs {
   task?: string;
   // A ref/head to compare against if no previously deployed SHA is available
   fallback?: string;
+  // Disable the Node.js exec maxBuffer limit (useful for large projects)
+  disableNodeBuffer?: boolean;
 }

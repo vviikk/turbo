@@ -79,6 +79,7 @@ export default function turboIgnore({ args }: { args: TurboIgnoreArgs }) {
     command,
     {
       cwd: root,
+      ...(args.disableNodeBuffer && { maxBuffer: undefined }),
     },
     (err, stdout) => {
       if (err) {

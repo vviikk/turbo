@@ -23,6 +23,7 @@ Flags:
                       fallback to comparing against the provided ref
   --help, -h          Show this help message
   --version, -v       Show the version of this script
+  --disableNodeBuffer Disable the Node.js exec maxBuffer limit (useful for large projects)
 
 ---
 
@@ -46,7 +47,10 @@ export default function parseArgs({
 }: {
   argv: Array<string>;
 }): TurboIgnoreArgs {
-  const args: TurboIgnoreArgs = { directory: process.cwd() };
+  const args: TurboIgnoreArgs = {
+    directory: process.cwd(),
+    disableNodeBuffer: false,
+  };
 
   // find all flags
   const flags = new Set(
